@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Prediction Result</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      body {
+        background-color: #f8f9fa;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+      .container {
+        margin-top: 20px;
+      }
+      .card {
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="my-4 text-center">Prediction Result</h1>
+      <div class="card">
+        <div class="card-body">
+          {% if resnet_result is not none and svm_result is not none %}
+            <h5 class="card-title">Single Input Prediction</h5>
+            <p class="card-text">ResNet Predicted Class: <strong>{{ class_names[resnet_result] }}</strong></p>
+            <p class="card-text">SVM Predicted Class: <strong>{{ class_names[svm_result] }}</strong></p>
+          {% endif %}
+        </div>
+      </div>
+      {% if results is not none %}
+        <h2 class="my-4 text-center">File Predictions</h2>
+        {% for filename, resnet_prediction, svm_prediction in results %}
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{{ filename }}</h5>
+              <p class="card-text">ResNet Predicted Class: <strong>{{ class_names[resnet_prediction] }}</strong></p>
+              <p class="card-text">SVM Predicted Class: <strong>{{ class_names[svm_prediction] }}</strong></p>
+            </div>
+          </div>
+        {% endfor %}
+      {% endif %}
+      <div class="text-center">
+        <a href="/" class="btn btn-primary mt-4">Go Back</a>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

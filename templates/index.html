@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Model Prediction</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+      .container {
+        text-align: center;
+      }
+      .input-form {
+        max-width: 600px;
+        margin: auto;
+      }
+      footer {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="mt-5">AI and ML on Roman Spectrossopic Analysis for Biomedical Applications</h1>
+      <p class="lead">Enter your input data below or upload files for classification.</p>
+      <div class="input-form">
+        <form action="/predict" method="post">
+          <div class="form-group">
+            <label for="input_data">Input Data (comma-separated):</label>
+            <input type="text" id="input_data" name="input_data" class="form-control" placeholder="Enter data">
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Predict</button>
+        </form>
+        <hr>
+        <h2>Upload Files for Prediction</h2>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+          <div class="form-group">
+            <label for="files">Choose files:</label>
+            <input type="file" id="files" name="files[]" class="form-control-file" multiple>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Upload and Predict</button>
+        </form>
+      </div>
+      <footer class="text-muted">
+        <p>Author: Your Name</p>
+      </footer>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
