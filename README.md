@@ -9,3 +9,11 @@ Install required packages using following two commands. It is recomened to creat
 now run 
 
 `python my_dnn.py`
+
+## For Web Visualization
+
+`python app.py`
+or
+`python3 app.py`
+
+then goto browser and open the URL http://0.0.0.0:5000/
